@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Physic's World">
+    <title>Physic's World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(main.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            transition: opacity 0.8s ease;
+        }
+
+        h1 {
+            font-size: 7.5em;
+            font-weight: 900;
+            margin-bottom: 0px;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            line-height: 1.2;
+            letter-spacing: 5px;
+        }
+
+        .start-button {
+            display: inline-block;
+            padding: 18px 95px;
+            font-size: 3em;
+            font-weight: 900;
+            color: rgb(17, 0, 114);
+            background-color: #ffffff;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .start-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* School Info Section */
+        #schoolInfo {
+            display: none; /* Initially hidden */
+            color: white;
+            padding: 100px;
+            text-align: justify;
+            font-size: 2em;
+            opacity: 0; /* Start hidden for fade-in effect */
+            transition: opacity 1s ease; /* Fade-in transition */
+        }
+
+        .separator {
+            height: 3px;
+            background-color: rgb(0, 86, 214); /* Changed to dark blue */
+            margin: 10px 0;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 5em;
+            color: rgba(255, 255, 255, 0.664);
+            margin-top: 30px; /* Lower the arrow */
+            transition: transform 0.3s ease;
+        }
+
+        .arrow:hover {
+            transform: scale(1.2);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin: 20px 0 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h3 {
+            font-size: 2.7em;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            color: rgb(233, 180, 5);
+        }
+
+        p {
+            font-size: 1em;
+            margin: 0 0 20px;
+            text-align: justify;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px; /* Adjust the size as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Logo in the top-left corner -->
+    <img src="lorenlogo.png" alt="Logo" class="logo">
+
+    <h1>LET'S EXPLORE THE<br>PHYSIC'S WORLD!</h1>
+    <h3>By: Aurel, Chloe, Cathleen 9C</h3>
+    <a href="selection.html" class="start-button" id="startButton">Start</a>
+    <div class="arrow" id="arrowDown">▼</div>
+    <div id="schoolInfo">
+        <h2>School Info</h2>
+        <div class="separator"></div>
+        <br>
+        <p>
+            Santa Laurensia, a progressive Roman Catholic school located in lush Alam Sutera, provides primary and
+            secondary experiential education for children. Since its establishment in 1994, its goal has been to impart
+            an intrinsic reverence for life and a passion for learning in a bilingual environment. Santa Laurensia’s
+            approach to learning is holistic in that it addresses the body, mind and spirit of our students in ways that
+            are developmentally appropriate.
+        </p>
+        <p>
+            Santa Laurensia’s learning conducive environment is supported by a team of professional teachers from abroad
+            and from Indonesia. This broad base of experience enables teachers to instill a sense of appreciation for
+            cultures both near and far, thereby introducing students to a keen domestic consciousness as well as a
+            global awareness of issues of importance throughout the world. In addition to its challenging yet supportive
+            academic program, the teachers of CSS Santa Laurensia also provide students with examples of healthy, purposeful
+            living, driven by a desire to empower students with the ability to navigate the global and intercultural
+            decisions of future generations.
+        </p>
+        <p>
+            To conclude, by emphasizing lifelong learning and personal character growth, Santa Laurensia’s commitment to
+            excellence is transforming the world one student at a time.
+        </p>
+    </div>
+
+    <footer>
+        Copyright © 2024. All rights reserved
+    </footer>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'selection.html';
+            }, 500);
+        });
+
+        const arrowDown = document.getElementById('arrowDown');
+        const schoolInfo = document.getElementById('schoolInfo');
+        let isSchoolInfoVisible = false;
+
+        // Smooth scroll function
+        function smoothScrollTo(target, duration) {
+            const targetPosition = target.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        arrowDown.addEventListener('click', function () {
+            if (!isSchoolInfoVisible) {
+                // Show the school info
+                schoolInfo.style.display = 'block';
+                schoolInfo.style.opacity = '1';
+                // Smooth scroll to the school info
+                smoothScrollTo(schoolInfo, 2000); // 2000ms (2 seconds) duration
+                isSchoolInfoVisible = true;
+            } else {
+                // Hide the school info and scroll back to the top
+                schoolInfo.style.opacity = '0';
+                setTimeout(() => {
+                    schoolInfo.style.display = 'none';
+                    smoothScrollTo(document.body, 2000); // 2000ms (2 seconds) duration
+                }, 500); // Match the transition duration
+                isSchoolInfoVisible = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

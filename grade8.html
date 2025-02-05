@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grade 8 Page">
+    <title>Grade 8 - Matter and Atoms</title>
+
+    <!-- Preconnect and Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: rgb(255, 255, 255);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-image: url(atombg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .side-box {
+            width: 460px;
+            height: 1215px;
+            background-color: rgba(255, 255, 255, 0.726);
+            border-top-right-radius: 70px;
+            border-bottom-right-radius: 70px;
+            padding: 30px;
+            box-shadow: 15px 0 55px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            color: rgb(17, 134, 202);
+            font-size: 10px;
+        }
+
+        .side-box p {
+            margin: 15px;
+            padding: 0;
+            font-weight: 300;
+            /* Thin font */
+            text-align: left;
+        }
+
+        .side-box p:first-child {
+            font-weight: 700;
+            /* Bold for "GRADE 7" */
+            font-size: 5em;
+        }
+
+        .side-box a {
+            color: rgb(6, 63, 138);
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+            display: block;
+            margin-left: 30px;
+            /* Indent for subheadings */
+        }
+
+
+        h1 {
+            font-size: 20em;
+            padding-top: 230px;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h2 {
+            font-size: 6em;
+            margin: 20px 0 10px;
+        }
+
+        h3 {
+            font-size: 4em;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            font-size: 3em;
+            margin: 0 0 20px;
+            text-align: justify;
+        }
+
+        .separator {
+            height: 3px;
+            background-color: rgb(129, 64, 248);
+            margin: 10px 0;
+        }
+
+        .content {
+            padding: 10px;
+            max-width: 1500px;
+            margin-left: 480px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .formula-box {
+            border: 2px solid rgb(251, 255, 6);
+            border-radius: 50px;
+            padding-left: 100px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: left;
+            font-size: 2em;
+            margin: 50px auto;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        ul {
+            font-size: 2.4em;
+            margin: 0 0 20px;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .go-back-button {
+            position: fixed;
+            bottom: 1px;
+            left: 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            z-index: 20;
+        }
+
+        .go-back-button img {
+            width: 130px;
+            height: 120px;
+        }
+
+        /* Responsive PDF and Video */
+        .pdf,
+        video {
+            width: 100%;
+            /* Make the width responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-width: 1300px;
+            /* Set a maximum width */
+            margin: 20px auto;
+            /* Center the elements */
+            display: block;
+            /* Ensure block-level display */
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 2000px) {
+            h1 {
+                font-size: 11em;
+            }
+
+            h2 {
+                font-size: 5em;
+            }
+
+            h3 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 2em;
+            }
+
+            .side-box {
+                width: 300px;
+                height: 1215px;
+                font-size: 8px;
+            }
+
+            .content {
+                margin-left: 420px;
+            }
+
+            .formula-box {
+                font-size: 1.5em;
+            }
+
+            ul {
+                font-size: 1.5em;
+            }
+
+            .go-back-button img {
+                width: 110px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 极200px) {
+            h1 {
+                font-size: 8em;
+            }
+
+            h2 {
+                font-size: 4em;
+            }
+
+            h3 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1.8em;
+            }
+
+            .side-box {
+                width: 250px;
+                height: 1000px;
+                font-size: 7px;
+            }
+
+            .content {
+                margin-left: 300px;
+            }
+
+            .formula-box {
+                font-size: 1.4em;
+            }
+
+            ul {
+                font-size: 1.4em;
+            }
+
+            .go-back-button img {
+                width: 90px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6em;
+            }
+
+            h2 {
+                font-size: 3em;
+            }
+
+            h3 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+
+            .side-box {
+                width: 200px;
+                height: 800px;
+                font-size: 6px;
+            }
+
+            .content {
+                margin-left: 220px;
+            }
+
+            .formula-box {
+                font-size: 1.2em;
+            }
+
+            ul {
+                font-size: 1.2em;
+            }
+
+            .go-back-button img {
+                width: 70px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .side-box {
+                width: 150px;
+                height: 600px;
+                font-size: 5px;
+            }
+
+            .content {
+                margin-left: 160px;
+            }
+
+            .formula-box {
+                font-size: 1em;
+            }
+
+            ul {
+                font-size: 1em;
+            }
+
+            .go-back-button img {
+                width: 50px;
+                height: 40px;
+            }
+        }
+
+        .side-box a:hover {
+            color: #0056b3;
+            /* Darker blue on hover */
+            text-decoration: underline;
+            /* Add underline on hover */
+        }
+
+        .side-box a:active {
+            color: #004080;
+            /* Even darker blue when clicked */
+        }
+
+        .side-box a:focus {
+            outline: 2px solid #000000;
+            /* Add outline for accessibility */
+            outline-offset: 2px;
+            /* Space between outline and link */
+        }
+
+        .blooket-game {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .blooket-game iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-box">
+        <p>GRADE 8</p>
+        <p><a href="#matter-and-atom">Matter and Atom</a></p>
+        <p><a href="#states-of-matter">A. Solid, Liquid, and Gas</a></p>
+        <p><a href="#atoms-and-isotopes">B. Atoms</a></p>
+        <p><a href="#periodic-table">C. Periodic Table</a></p>
+        <p><a href="#elements-compounds-mixtures">D. Elements, Compounds, and Mixtures</a></p>
+        <p><a href="#changing-matter">E. Changing Matter</a></p>
+        <p><a href="#pdf-version">PDF Version</a></p>
+        <p><a href="#blooket-game">Blooket Game</a></p>
+        <p><a href="#states-of-matter-simulation">States of Matter Simulation</a></p>
+        <p><a href="#refrences">Refrences</a></p>
+    </div>
+
+    <button class="go-back-button" id="goBackButton">
+        <img src="back.png" alt="Go Back">
+    </button>
+
+    <div class="content">
+        <h1>Grade 8</h1>
+        <h2 id="matter-and-atom" class="fade-in">Matter and Atom</h2>
+        <div class="separator fade-in"></div>
+
+        <h3 id="states-of-matter" class="fade-in">A. Solid, Liquid, and Gas:</h3>
+        <ul class="fade-in">
+            <li><strong>Solid:</strong> A solid is a state of matter where particles are tightly packed together, giving
+                it a fixed shape and volume.</li>
+            <li><strong>Liquid:</strong> A liquid is a state of matter where particles are close together but can move
+                freely, allowing it to flow and take the shape of its container.</li>
+            <li><strong>Gas:</strong> A gas is a state of matter where particles are widely spaced and move freely,
+                allowing it to expand to fill any container.</li>
+        </ul>
+        <div class="formula-box fade-in">
+            <li>Solid -> Liquid (Melting)</li>
+            <li>Liquid -> Solid (Freezing)</li>
+            <li>Liquid -> Gas (Evaporation)</li>
+            <li>Solid -> Gas (Sublimation)</li>
+            <li>Gas -> Solid (Deposition)</li>
+            <li>Gas -> Liquid (Condensation)</li>
+        </div>
+        <br>
+        <h3 id="atoms-and-isotopes" class="fade-in">B. Atoms:</h3>
+        <ul class="fade-in">
+            <li><strong>Structure of Atom:</strong></li>
+            <li>Proton (found in the nucleus): Positive Charge and cannot move</li>
+            <li>Neutron (found in the nucleus): Neutral Charge and cannot move</li>
+            <li>Electrons (found in the orbits): Negative Charge and can move</li>
+            <li>Orbits: Paths that electrons follow around the nucleus.</li>
+        </ul>
+        <ul class="fade-in">
+            <li><strong>Symbol of an Atom:</strong> Depends on the element (e.g., O for oxygen, Au for gold).</li>
+            <li><strong>Isotopes:</strong> Atoms of the same element with the same number of protons but different
+                numbers of neutrons.</li>
+        </ul>
+        <ul class="fade-in">
+            <li><strong>Atoms, Molecules, Compounds, and Ions:</strong></li>
+            <li>Atoms are the basic building blocks of matter.</li>
+            <li>Molecules are groups of two or more atoms.</li>
+            <li>Compounds are a group of two or more molecules.</li>
+            <li>Ions are atoms or molecules that have gained or lost electrons.</li>
+        </ul>
+        <br>
+        <br>
+        <h3 id="periodic-table" class="fade-in">C. Periodic Table:</h3>
+        <ul class="fade-in">
+            <li><strong>Period/Row:</strong> A horizontal row of elements containing the number of electron shells.</li>
+            <li><strong>Group/Column:</strong> A vertical column of elements containing the number of outer electrons.
+            </li>
+            <br>
+            <strong>Why are There a lot of Numbers in 1 Box of Elements?</strong><br>
+        </ul>
+
+        <div style="display: flex; align-items: flex-start; margin-top: 20px;">
+            <div class="formula-box fade-in" style="flex: 1; margin-right: 20px;">
+                Atomic Number: Number of Protons<br>
+                Atomic Mass: Protons + Neutrons<br>
+                Charge: Protons - Electrons<br>
+                Nucleus: Protons + Neutrons<br>
+                Proton > Neutron: Positive Charge<br>
+                Proton > Neutron: Negative Charge
+            </div>
+            <img class="fade-in" src="atom.jpeg" alt="Description of Image"
+                style="max-width: 700px; height: auto; margin-left: 20px;">
+        </div>
+        <video controls>
+            <source src="period table.mp4" type="video/mp4">
+        </video>
+        <br>
+        <br>
+        <h3 id="elements-compounds-mixtures" class="fade-in">D. Elements, Compounds, and Mixtures:</h3>
+        <ul class="fade-in">
+            <li>Elements are simple substances made of one type of atom.</li>
+            <li>Compounds are substances made when two or more different elements chemically combine.</li>
+            <li>Mixtures are combinations of two or more substances that are not chemically bonded.</li>
+        </ul>
+        <br>
+        <br>
+        <h3 id="changing-matter" class="fade-in">E. Changing Matter:</h3>
+        <ul class="fade-in">
+            <li><strong>Physical Reaction:</strong> A change that does not alter the chemical composition.</li>
+            <li><strong>Chemical Reaction:</strong> A process where substances change into new substances with different
+                properties.</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <h2 class="fade-in">PDF Version</h2>
+        <div class="separator fade-in"></div>
+        <br>
+        <iframe class="pdf" src="Matter & Atom.pdf" frameborder="0" style="height: 800px;"></iframe>
+        <br>
+        <h2 id="blooket-game" class="fade-in">Blooket Game</h2>
+        <div class="separator fade-in"></div>
+        <div class="blooket-game fade-in">
+            <p>Test your knowledge with this fun Blooket game!</p>
+            <iframe src="https://dashboard.blooket.com/set/679b768fd8faf0cea4679a02" frameborder="0"
+                style="height: 600px; width: 100%;"></iframe>
+            <iframe class="pdf" src="Matter and Atom Key Answers-1.pdf" frameborder="0" style="height: 800px;"></iframe>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2 class="fade-in">States of Matter Simulation</h2>
+        <div class="separator fade-in"></div>
+        <div class="blooket-game fade-in">
+            <p>Explore the states of matter with this interactive simulation!</p>
+            <iframe
+                src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html"
+                frameborder="0" style="height: 600px; width: 100%;"></iframe>
+            Source: pHet Colorado (state of matters)
+        </div>
+        <br>
+        <h2 id="refrences" class="fade-in">References</h2>
+        <div class="separator fade-in"></div>
+        <p class="fade-in">References from teachers PPT and notes</p>
+        <br>
+    </div>
+    <script>
+        document.getElementById('goBackButton').addEventListener('click', function () {
+            window.location.href = 'selection.html';
+        });
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grade 7 Page">
+    <title>Grade 7 - Work and Energy</title>
+
+    <!-- Preconnect and Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: rgb(255, 255, 255);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-image: url(energybg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .side-box {
+            width: 460px;
+            height: 1215px;
+            background-color: rgba(255, 255, 255, 0.726);
+            border-top-right-radius: 70px;
+            border-bottom-right-radius: 70px;
+            padding: 30px;
+            box-shadow: 15px 0 55px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            color: rgb(17, 134, 202);
+            font-size: 10px;
+        }
+
+        .side-box p {
+            margin: 15px;
+            padding: 0;
+            font-weight: 300;
+            /* Thin font */
+            text-align: left;
+        }
+
+        .side-box p:first-child {
+            font-weight: 700;
+            /* Bold for "GRADE 7" */
+            font-size: 5em;
+        }
+
+        .side-box a {
+            color: rgb(6, 63, 138);
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+            display: block;
+            margin-left: 30px;
+            /* Indent for subheadings */
+        }
+
+        .side-box a:hover {
+            color: #0b6635;
+            text-decoration: underline;
+        }
+
+        .side-box a:active {
+            color: #0045ac;
+        }
+
+        .side-box a:focus {
+            outline: 2px solid #000000;
+            outline-offset: 2px;
+        }
+
+        h1 {
+            font-size: 20em;
+            padding-top: 230px;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h2 {
+            font-size: 6em;
+            margin: 20px 0 10px;
+        }
+
+        h3 {
+            font-size: 4em;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            font-size: 3em;
+            margin: 0 0 20px;
+            text-align: justify;
+        }
+
+        .separator {
+            height: 3px;
+            background-color: darkgreen;
+            margin: 10px 0;
+        }
+
+        .content {
+            padding: 10px;
+            max-width: 1500px;
+            margin-left: 480px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .formula-box {
+            background-color: rgba(249, 253, 0, 0.952);
+            color: black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+            width: 550px;
+            height: 100px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 1.6em;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul {
+            font-size: 2.4em;
+            margin: 0 0 20px;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .go-back-button {
+            position: fixed;
+            bottom: 1px;
+            left: 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            z-index: 20;
+        }
+
+        .go-back-button img {
+            width: 130px;
+            height: 120px;
+        }
+
+        .pdf,
+        video {
+            width: 100%;
+            height: auto;
+            max-width: 1300px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .blooket-game {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .blooket-game iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 2000px) {
+            h1 {
+                font-size: 11em;
+            }
+
+            h2 {
+                font-size: 5em;
+            }
+
+            h3 {
+                font-size: 4em;
+            }
+
+            p {
+                font-size: 2em;
+            }
+
+            .side-box {
+                width: 300px;
+                height: 1215px;
+                font-size: 8px;
+            }
+
+            .content {
+                margin-left: 420px;
+            }
+
+            .formula-box {
+                font-size: 1.5em;
+            }
+
+            ul {
+                font-size: 1.5em;
+            }
+
+            .go-back-button img {
+                width: 110px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 8em;
+            }
+
+            h2 {
+                font-size: 4em;
+            }
+
+            h3 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1.8em;
+            }
+
+            .side-box {
+                width: 250px;
+                height: 1000px;
+                font-size: 7px;
+            }
+
+            .content {
+                margin-left: 300px;
+            }
+
+            .formula-box {
+                font-size: 1.4em;
+            }
+
+            ul {
+                font-size: 1.4em;
+            }
+
+            .go-back-button img {
+                width: 90px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6em;
+            }
+
+            h2 {
+                font-size: 3em;
+            }
+
+            h3 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+
+            .side-box {
+                width: 200px;
+                height: 800px;
+                font-size: 6px;
+            }
+
+            .content {
+                margin-left: 220px;
+            }
+
+            .formula-box {
+                font-size: 1.2em;
+            }
+
+            ul {
+                font-size: 1.2em;
+            }
+
+            .go-back-button img {
+                width: 70px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .side-box {
+                width: 150px;
+                height: 600px;
+                font-size: 5px;
+            }
+
+            .content {
+                margin-left: 160px;
+            }
+
+            .formula-box {
+                font-size: 1em;
+            }
+
+            ul {
+                font-size: 1em;
+            }
+
+            .go-back-button img {
+                width: 50px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-box">
+        <p>GRADE 7</p>
+        <p><a href="#work-and-energy">Work and Energy</a></p>
+        <p><a href="#work">A. Work</a></p>
+        <p><a href="#energy">B. Energy</a></p>
+        <p><a href="#sankey-diagram">C. Sankey Diagram</a></p>
+        <p><a href="#power-and-efficiency">D. Power and Efficiency</a></p>
+        <p><a href="#conservation-and-sustainable-energy">E. Conservation of Energy and Sustainable Energy</a></p>
+        <p><a href="#pdf-version">PDF Version</a></p>
+        <p><a href="#blooket-game">Blooket Game</a></p>
+        <p><a href="#refrences">Refrences</a></p>
+    </div>
+
+    <button class="go-back-button" id="goBackButton">
+        <img src="back.png" alt="Go Back">
+    </button>
+
+    <div class="content">
+        <h1>Grade 7</h1>
+        <h2 id="work-and-energy">Work and Energy</h2>
+        <div class="separator fade-in"></div>
+        <h3 id="work" class="fade-in">A. Work</h3>
+        <p class="fade-in">Work is the transfer of energy that occurs when a force is applied to an object and the
+            object moves in the direction of the force.</p>
+        <div class="formula-box fade-in">
+            Formula: Work = force x distance (f x d)
+        </div>
+        <br>
+        <br>
+        <br>
+        <h3 id="energy" class="fade-in">B. Energy</h3>
+        <p class="fade-in">Energy is the ability to do work or create change. Energy can be transferred from one
+            object
+            to another or transformed from one form to another. It is measured in units called joules (J). The types of
+            energy are below:</p>
+        <ul class="fade-in">
+            <li><strong>Kinetic Energy:</strong> Kinetic energy is the energy of motion. Every moving thing contains
+                kinetic energy.</li>
+        </ul>
+        <div class="formula-box fade-in">(½ x mass of object x velocity<sup>2</sup>)</div>
+        <ul class="fade-in">
+            <li><strong>Potential Energy:</strong> Potential energy is the energy that is stored in an object due to its
+                position. For example; gravitational potential energy.</li>
+        </ul>
+        <div class="formula-box fade-in">(mass x gravitational field strength x height)</div>
+        <ul class="fade-in">
+            <li><strong>Thermal Energy:</strong> Thermal energy is the transfer of thermal from one object to another
+                due to the temperature difference and from the movement of its atoms and molecules.</li>
+            <li><strong>Chemical Energy:</strong> Chemical energy is the energy that is stored in a chemical substance.
+                The energy is released when there is a chemical reaction. Example; batteries and combustion.</li>
+            <li><strong>Electrical Energy:</strong> Electric energy is the energy that is associated with electric
+                charges. It creates the movement of electrons to power an electrical device.</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <h3 id="sankey-diagram" class="fade-in">C. Sankey Diagram</h3>
+        <p class="fade-in">Sankey Diagram is a diagram that shows how energy is being transferred starting from the
+            energy input, energy transfer process, and the energy output. Sankey diagrams show what happens to an energy
+            input system. The energy flow is shown by the arrows that have a width that is proportional to the amount of
+            energy involved. Wide arrows represent large energy flows, and narrow arrows show small energy flows.</p>
+        <img src="sankey.jpeg" alt="Sankey Diagram" class="fade-in">
+        <video controls>
+            <source src="Sankey Diagram.mp4" type="video/mp4">
+        </video>
+        <br>
+        <br>
+        <br>
+        <h3 id="power-and-efficiency" class="fade-in">D. Power and Efficiency</h3>
+        <ul class="fade-in">
+            <li><strong>Power:</strong> Power is the rate at which work is done/energy is transferred. It can be defined
+                as the amount of energy consumed or the work done per unit of time. Power is measured in watts.
+            </li>
+        </ul>
+        <div class="formula-box fade-in">(Formula: Power = work/time)</div>
+        <ul class="fade-in">
+            <li><strong>Efficiency:</strong> In energy transfer, a proportion of the energy is wasted. Efficiency is how
+                effectively energy is used in the process of transferring energy. Efficiency is measured in percent.
+            </li>
+        </ul>
+        <div class="formula-box fade-in">(Formula: Useful output energy/Total input energy x 100%)</div>
+        <br>
+        <br>
+        <br>
+        <h3 id="conservation-and-sustainable-energy" class="fade-in">E. Conservation of Energy and Sustainable Energy
+        </h3>
+        <ul class="fade-in">
+            <li><strong>Conservation of Energy:</strong> It is a principle that states that energy can’t be created or
+                destroyed, but can be transformed from one form to another with the same amount of total energy. For
+                example, from kinetic energy to potential energy such as when kinetic energy causes a ball to travel
+                upward when it is launched into the air. All of the kinetic energy has been transformed into potential
+                energy by the time it reaches the top of the arc, so there is no more kinetic energy.</li>
+            <li><strong>Sustainable Energy:</strong> Sustainable energy is renewable, clean, and long-term
+                cost-effective energy sources with little negative impact on the environment and society. Examples of
+                sustainable energy are solar power (solar panels) and wind power (wind turbines).</li>
+        </ul>
+        <br>
+        <br>
+        <h2 id="pdf-version" class="fade-in">PDF Version</h2>
+        <div class="separator fade-in"></div>
+        <br>
+        <iframe class="pdf" src="Work & Energy.pdf" frameborder="0" style="height: 800px;"></iframe>
+        <br>
+        <h2 id="blooket-game" class="fade-in">Blooket Game</h2>
+        <div class="separator fade-in"></div>
+        <div class="blooket-game fade-in">
+            <p>Test your knowledge with this fun Blooket game!</p>
+            <iframe src="https://dashboard.blooket.com/set/679b66e311022885099ad6be" frameborder="0"
+                style="height: 600px; width: 100%;"></iframe>
+            <iframe class="pdf" src="Work and Energy Key Answers.pdf" frameborder="0" style="height: 800px;"></iframe>
+        </div>
+        <br>
+        <br>
+        <h2 id="refrences" class="fade-in">References</h2>
+        <div class="separator fade-in"></div>
+        <p class="fade-in">References from teachers PPT and notes</p>
+        <br>
+    </div>
+
+    <script>
+        document.getElementById('goBackButton').addEventListener('click', function () {
+            window.location.href = 'selection.html';
+        });
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+    </script>
+</body>
+
+</html>
